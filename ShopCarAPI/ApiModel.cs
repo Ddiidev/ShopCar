@@ -1,6 +1,5 @@
 ﻿using ShopCarAPI.Exceptions;
 using ShopCarAPI.Models;
-using System.Net.Http.Json;
 using Newtonsoft.Json;
 
 namespace ShopCarAPI;
@@ -9,7 +8,7 @@ public static partial class Api
 	const string HttpUrlModel = @"https://parallelum.com.br/fipe/api/v1/carros/marcas/{0}/modelos";
 
 
-	public static async Task<ModelsBrand?> SearchModels(string codeBrand)
+	public static async Task<ModelsBrand> SearchModels(string codeBrand)
 	{
 		string resultJsonString;
 		var client = new HttpClient
@@ -28,7 +27,10 @@ public static partial class Api
 
 		try
 		{
-			return JsonConvert.DeserializeObject<ModelsBrand>(resultJsonString);
+			return JsonConvert.DeserializeObject<ModelsBrand>(resultJsonString) ?? new ModelsBrand
+			{
+				Error = @$"A marca ""{codeBrand}"" não encontrada"
+			};
 		} catch (Exception ex)
 		{
 			throw new MarcaException("Falhou deserializando resultado da api", ex);

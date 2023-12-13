@@ -9,7 +9,7 @@ public static partial class Api
 	const string HttpUrlBrands = "https://parallelum.com.br/fipe/api/v1/carros/marcas";
 
 
-	public static async Task<List<Marca>> GetBrands()
+	public static async Task<List<Brand>> GetBrands()
 	{
 		string resultJsonString;
 		var client = new HttpClient
@@ -28,9 +28,9 @@ public static partial class Api
 
 		try
 		{
-			var marcas = JsonConvert.DeserializeObject<List<Marca>>(resultJsonString);
+			var marcas = JsonConvert.DeserializeObject<List<Brand>>(resultJsonString);
 			if (marcas is null || marcas.Count == 0)
-				marcas = new List<Marca>();
+				marcas = new List<Brand>();
 
 			return marcas;
 		} catch (Exception ex)

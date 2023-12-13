@@ -1,11 +1,18 @@
-﻿using ShopCar.App.Controllers;
+﻿using System.Linq;
+using ShopCar.App.Controllers;
 using ShopCar.App.Models;
+
+using ShopCarAPI;
+using ShopCarAPI.Models;
 
 namespace ShopCar.App.Views;
 public partial class ViewVehicles : UserControl
 {
 	public event EventHandler? CloseViewVehicles;
 
+
+	List<Brand> Marcas { get; set; }
+	ModelsBrand? Modelos { get; set; }
 	ModelVehicle? CurrentVehicleSelected { get; set; }
 
 	public ViewVehicles()
@@ -193,6 +200,16 @@ public partial class ViewVehicles : UserControl
 			MessageBox.Show($"Campo com dado incorreto.\n{ex.Message}");
 		}
 
+		try {
+			await ChecarCampoModelo();
+
+			await ChecarCampoMarca();
+		} catch (Exception ex)
+		{
+			MessageBox.Show(ex.Message);
+			return;
+		}
+
 
 		if (CurrentStateEdit == StateEdit.create)
 			await ControllerVehicle.Criar(vehicle);
@@ -213,6 +230,26 @@ public partial class ViewVehicles : UserControl
 		await PopularDataGrid();
 
 		TabMain.SelectedTab = PageMain;
+	}
+
+
+	private async Task ChecarCampoModelo()
+	{
+		Modelos ??= await Api.SearchModels(TxModelo.Text);
+		if (Modelos.Modelos is null || (Modelos.Modelos is not null && Modelos.Modelos.Count == 0))
+			Modelos ??= await Api.SearchModels(TxModelo.Text);
+
+		if (!string.IsNullOrEmpty(Modelos.Error))
+			throw new Exception(Modelos.Error);
+	}
+
+	private async Task ChecarCampoMarca()
+	{
+		if (Marcas.Count == 0)
+			Marcas = await Api.GetBrands();
+
+		if (!Marcas.Any(m => m.Nome == TxMarca.Text))
+			throw new Exception($@"Não existe a marca ""{TxMarca.Text}""");
 	}
 	#endregion
 }
