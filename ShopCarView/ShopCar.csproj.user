@@ -4,6 +4,9 @@
     <Compile Update="App\Views\ViewLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="App\Views\ViewVeicles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

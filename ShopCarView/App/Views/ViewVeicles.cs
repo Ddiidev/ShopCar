@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ShopCar.App.Views;
-public partial class ViewLogin : UserControl
+public partial class ViewVeicles : UserControl
 {
-	public ViewLogin()
+	public ViewVeicles()
 	{
 		InitializeComponent();
 	}

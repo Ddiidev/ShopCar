@@ -37,7 +37,7 @@ partial class ViewLogin
 		// TxUser
 		// 
 		TxUser.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
-		TxUser.Location = new Point(116, 258);
+		TxUser.Location = new Point(296, 302);
 		TxUser.Multiline = true;
 		TxUser.Name = "TxUser";
 		TxUser.Size = new Size(252, 33);
@@ -47,7 +47,7 @@ partial class ViewLogin
 		// TxPass
 		// 
 		TxPass.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
-		TxPass.Location = new Point(116, 324);
+		TxPass.Location = new Point(296, 368);
 		TxPass.Multiline = true;
 		TxPass.Name = "TxPass";
 		TxPass.Size = new Size(252, 33);
@@ -56,17 +56,18 @@ partial class ViewLogin
 		// 
 		// BtLogin
 		// 
-		BtLogin.Location = new Point(188, 378);
+		BtLogin.Location = new Point(368, 422);
 		BtLogin.Name = "BtLogin";
 		BtLogin.Size = new Size(95, 39);
 		BtLogin.TabIndex = 2;
 		BtLogin.Text = "Login";
 		BtLogin.UseVisualStyleBackColor = true;
+		BtLogin.Click += BtLogin_Click;
 		// 
 		// LbTitle
 		// 
 		LbTitle.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-		LbTitle.Location = new Point(116, 81);
+		LbTitle.Location = new Point(296, 134);
 		LbTitle.Name = "LbTitle";
 		LbTitle.Size = new Size(252, 98);
 		LbTitle.TabIndex = 3;
@@ -77,14 +78,14 @@ partial class ViewLogin
 		// 
 		AutoScaleDimensions = new SizeF(7F, 17F);
 		AutoScaleMode = AutoScaleMode.Font;
-		BackColor = Color.Transparent;
+		BackColor = SystemColors.ButtonFace;
 		Controls.Add(LbTitle);
 		Controls.Add(BtLogin);
 		Controls.Add(TxPass);
 		Controls.Add(TxUser);
 		Font = new Font("Segoe UI Semilight", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
 		Name = "ViewLogin";
-		Size = new Size(477, 487);
+		Size = new Size(866, 600);
 		ResumeLayout(false);
 		PerformLayout();
 	}
