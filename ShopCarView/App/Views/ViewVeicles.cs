@@ -15,4 +15,9 @@ public partial class ViewVeicles : UserControl
 	{
 		InitializeComponent();
 	}
+
+	private void BtNew_Click(object sender, EventArgs e)
+	{
+
+	}
 }
