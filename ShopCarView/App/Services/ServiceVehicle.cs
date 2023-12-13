@@ -38,7 +38,7 @@ public class ServiceVehicle
 	";
 
 	const string DeleteSql = @"
-		SELECT FROM Veiculos WHERE Id = @Id;
+		DELETE FROM Veiculos WHERE Id = @Id;
 	";
 
 	public static async Task<int> Add(ModelVehicle vehicle)

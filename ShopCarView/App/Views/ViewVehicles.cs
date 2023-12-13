@@ -81,11 +81,24 @@ public partial class ViewVehicles : UserControl
 
 	private async void BtDeletar_Click(object sender, EventArgs e)
 	{
-		CurrentVehicleSelected = (ModelVehicle)dgvListaVeiculos.CurrentRow.DataBoundItem;
+		try
+		{
+			CurrentVehicleSelected = (ModelVehicle)dgvListaVeiculos.CurrentRow.DataBoundItem;
+		} catch
+		{
+			MessageBox.Show("Falha ao capturar o veículo selecionado, tente novamente.");
+			return;
+		}
+
+		var msg = $"Deseja deletar o veículo {CurrentVehicleSelected.Marca} do modelo ({CurrentVehicleSelected.Modelo})";
+		if (MessageBox.Show(msg, "Atenção!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes)
+			return;
 
 		try
 		{
 			await ControllerVehicle.DeletarVeiculoPorId(CurrentVehicleSelected);
+
+			await PopularDataGrid();
 		} catch (Exception ex)
 		{
 			MessageBox.Show(ex.Message);

@@ -42,7 +42,7 @@ partial class ViewVehicles
 		BtEditar = new Button();
 		BtDeletar = new Button();
 		PageEdit = new TabPage();
-		tableLayoutPanel1 = new TableLayoutPanel();
+		LayoutPanelEditTop = new TableLayoutPanel();
 		tableLayoutPanel5 = new TableLayoutPanel();
 		BtSalvar = new Button();
 		BtCancelar = new Button();
@@ -75,7 +75,7 @@ partial class ViewVehicles
 		tableLayoutPanel2.SuspendLayout();
 		tableLayoutPanel3.SuspendLayout();
 		PageEdit.SuspendLayout();
-		tableLayoutPanel1.SuspendLayout();
+		LayoutPanelEditTop.SuspendLayout();
 		tableLayoutPanel5.SuspendLayout();
 		tableLayoutPanel4.SuspendLayout();
 		PnContentEdit.SuspendLayout();
@@ -113,8 +113,8 @@ partial class ViewVehicles
 		LayoutPanelMain.Location = new Point(3, 3);
 		LayoutPanelMain.Name = "LayoutPanelMain";
 		LayoutPanelMain.RowCount = 3;
-		LayoutPanelMain.RowStyles.Add(new RowStyle(SizeType.Percent, 13.6029415F));
-		LayoutPanelMain.RowStyles.Add(new RowStyle(SizeType.Percent, 86.39706F));
+		LayoutPanelMain.RowStyles.Add(new RowStyle(SizeType.Percent, 10.5360441F));
+		LayoutPanelMain.RowStyles.Add(new RowStyle(SizeType.Percent, 89.46396F));
 		LayoutPanelMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
 		LayoutPanelMain.Size = new Size(856, 597);
 		LayoutPanelMain.TabIndex = 1;
@@ -123,10 +123,10 @@ partial class ViewVehicles
 		// 
 		dgvListaVeiculos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 		dgvListaVeiculos.Dock = DockStyle.Fill;
-		dgvListaVeiculos.Location = new Point(3, 76);
+		dgvListaVeiculos.Location = new Point(3, 60);
 		dgvListaVeiculos.Name = "dgvListaVeiculos";
 		dgvListaVeiculos.RowTemplate.Height = 25;
-		dgvListaVeiculos.Size = new Size(850, 462);
+		dgvListaVeiculos.Size = new Size(850, 478);
 		dgvListaVeiculos.TabIndex = 1;
 		// 
 		// LayoutPanelTop
@@ -142,7 +142,7 @@ partial class ViewVehicles
 		LayoutPanelTop.Padding = new Padding(5);
 		LayoutPanelTop.RowCount = 1;
 		LayoutPanelTop.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-		LayoutPanelTop.Size = new Size(850, 67);
+		LayoutPanelTop.Size = new Size(850, 51);
 		LayoutPanelTop.TabIndex = 3;
 		// 
 		// BtVoltar
@@ -150,7 +150,7 @@ partial class ViewVehicles
 		BtVoltar.Dock = DockStyle.Fill;
 		BtVoltar.Location = new Point(8, 8);
 		BtVoltar.Name = "BtVoltar";
-		BtVoltar.Size = new Size(76, 51);
+		BtVoltar.Size = new Size(76, 35);
 		BtVoltar.TabIndex = 2;
 		BtVoltar.Text = "< Voltar";
 		BtVoltar.UseVisualStyleBackColor = true;
@@ -168,7 +168,7 @@ partial class ViewVehicles
 		tableLayoutPanel2.Name = "tableLayoutPanel2";
 		tableLayoutPanel2.RowCount = 1;
 		tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-		tableLayoutPanel2.Size = new Size(752, 51);
+		tableLayoutPanel2.Size = new Size(752, 35);
 		tableLayoutPanel2.TabIndex = 3;
 		// 
 		// BtBuscar
@@ -176,7 +176,7 @@ partial class ViewVehicles
 		BtBuscar.Dock = DockStyle.Fill;
 		BtBuscar.Location = new Point(661, 3);
 		BtBuscar.Name = "BtBuscar";
-		BtBuscar.Size = new Size(88, 45);
+		BtBuscar.Size = new Size(88, 29);
 		BtBuscar.TabIndex = 3;
 		BtBuscar.Text = "Buscar 🔎";
 		BtBuscar.UseVisualStyleBackColor = true;
@@ -185,10 +185,10 @@ partial class ViewVehicles
 		// TxCampoBusca
 		// 
 		TxCampoBusca.Dock = DockStyle.Fill;
+		TxCampoBusca.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
 		TxCampoBusca.Location = new Point(3, 3);
-		TxCampoBusca.Multiline = true;
 		TxCampoBusca.Name = "TxCampoBusca";
-		TxCampoBusca.Size = new Size(652, 45);
+		TxCampoBusca.Size = new Size(652, 29);
 		TxCampoBusca.TabIndex = 0;
 		// 
 		// tableLayoutPanel3
@@ -243,7 +243,7 @@ partial class ViewVehicles
 		// 
 		// PageEdit
 		// 
-		PageEdit.Controls.Add(tableLayoutPanel1);
+		PageEdit.Controls.Add(LayoutPanelEditTop);
 		PageEdit.Location = new Point(4, 25);
 		PageEdit.Name = "PageEdit";
 		PageEdit.Padding = new Padding(3);
@@ -252,22 +252,22 @@ partial class ViewVehicles
 		PageEdit.Text = "tabPage2";
 		PageEdit.UseVisualStyleBackColor = true;
 		// 
-		// tableLayoutPanel1
+		// LayoutPanelEditTop
 		// 
-		tableLayoutPanel1.ColumnCount = 1;
-		tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-		tableLayoutPanel1.Controls.Add(tableLayoutPanel5, 0, 2);
-		tableLayoutPanel1.Controls.Add(tableLayoutPanel4, 0, 0);
-		tableLayoutPanel1.Controls.Add(PnContentEdit, 0, 1);
-		tableLayoutPanel1.Dock = DockStyle.Fill;
-		tableLayoutPanel1.Location = new Point(3, 3);
-		tableLayoutPanel1.Name = "tableLayoutPanel1";
-		tableLayoutPanel1.RowCount = 3;
-		tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.7252932F));
-		tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 88.274704F));
-		tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
-		tableLayoutPanel1.Size = new Size(856, 597);
-		tableLayoutPanel1.TabIndex = 0;
+		LayoutPanelEditTop.ColumnCount = 1;
+		LayoutPanelEditTop.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+		LayoutPanelEditTop.Controls.Add(tableLayoutPanel5, 0, 2);
+		LayoutPanelEditTop.Controls.Add(tableLayoutPanel4, 0, 0);
+		LayoutPanelEditTop.Controls.Add(PnContentEdit, 0, 1);
+		LayoutPanelEditTop.Dock = DockStyle.Fill;
+		LayoutPanelEditTop.Location = new Point(3, 3);
+		LayoutPanelEditTop.Name = "LayoutPanelEditTop";
+		LayoutPanelEditTop.RowCount = 3;
+		LayoutPanelEditTop.RowStyles.Add(new RowStyle(SizeType.Percent, 10.7485609F));
+		LayoutPanelEditTop.RowStyles.Add(new RowStyle(SizeType.Percent, 89.25144F));
+		LayoutPanelEditTop.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
+		LayoutPanelEditTop.Size = new Size(856, 597);
+		LayoutPanelEditTop.TabIndex = 0;
 		// 
 		// tableLayoutPanel5
 		// 
@@ -320,7 +320,7 @@ partial class ViewVehicles
 		tableLayoutPanel4.Padding = new Padding(5);
 		tableLayoutPanel4.RowCount = 1;
 		tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-		tableLayoutPanel4.Size = new Size(850, 55);
+		tableLayoutPanel4.Size = new Size(850, 50);
 		tableLayoutPanel4.TabIndex = 4;
 		// 
 		// BtVoltarEdit
@@ -328,7 +328,7 @@ partial class ViewVehicles
 		BtVoltarEdit.Dock = DockStyle.Fill;
 		BtVoltarEdit.Location = new Point(8, 8);
 		BtVoltarEdit.Name = "BtVoltarEdit";
-		BtVoltarEdit.Size = new Size(76, 39);
+		BtVoltarEdit.Size = new Size(76, 34);
 		BtVoltarEdit.TabIndex = 2;
 		BtVoltarEdit.Text = "< Voltar";
 		BtVoltarEdit.UseVisualStyleBackColor = true;
@@ -355,9 +355,9 @@ partial class ViewVehicles
 		PnContentEdit.Controls.Add(label1);
 		PnContentEdit.Controls.Add(TxPlaca);
 		PnContentEdit.Dock = DockStyle.Fill;
-		PnContentEdit.Location = new Point(3, 64);
+		PnContentEdit.Location = new Point(3, 59);
 		PnContentEdit.Name = "PnContentEdit";
-		PnContentEdit.Size = new Size(850, 454);
+		PnContentEdit.Size = new Size(850, 459);
 		PnContentEdit.TabIndex = 6;
 		// 
 		// label9
@@ -530,7 +530,7 @@ partial class ViewVehicles
 		tableLayoutPanel2.PerformLayout();
 		tableLayoutPanel3.ResumeLayout(false);
 		PageEdit.ResumeLayout(false);
-		tableLayoutPanel1.ResumeLayout(false);
+		LayoutPanelEditTop.ResumeLayout(false);
 		tableLayoutPanel5.ResumeLayout(false);
 		tableLayoutPanel4.ResumeLayout(false);
 		PnContentEdit.ResumeLayout(false);
@@ -554,7 +554,7 @@ partial class ViewVehicles
 	private Button BtEditar;
 	private Button BtDeletar;
 	private TabPage PageEdit;
-	private TableLayoutPanel tableLayoutPanel1;
+	private TableLayoutPanel LayoutPanelEditTop;
 	private TableLayoutPanel tableLayoutPanel4;
 	private Button BtVoltarEdit;
 	private TableLayoutPanel tableLayoutPanel5;
