@@ -1,9 +1,11 @@
 ﻿namespace ShopCar.App.Views;
 
+using ShopCarAPI;
+using ShopCarAPI.Models;
 
 public partial class ViewLogin : UserControl
 {
-	public event EventHandler<bool> ResultLogin;
+	public event EventHandler<bool>? ResultLogin;
 
 	public ViewLogin()
 	{
@@ -12,8 +14,23 @@ public partial class ViewLogin : UserControl
 		BackColor = Color.Transparent;
 	}
 
-	private void BtLogin_Click(object sender, EventArgs e)
+	private async void BtLogin_Click(object sender, EventArgs e)
 	{
-		ResultLogin?.Invoke(this, true);
+		try
+		{
+			var user = await Api.Login(new ExtLoginUser
+			{
+				User = TxUser.Text,
+				Password = TxPass.Text
+			});
+
+			if (!user.Error)
+				ResultLogin?.Invoke(this, true);
+			else
+				throw new Exception(user.Message);
+		} catch (Exception ex)
+		{
+			MessageBox.Show(ex.Message);
+		}
 	}
 }

@@ -1,6 +1,8 @@
 using ShopCar.App.Services;
 using ShopCar.App.Views;
 
+using System.ComponentModel;
+
 namespace ShopCar;
 
 public partial class FormMain : Form
@@ -11,6 +13,11 @@ public partial class FormMain : Form
 	};
 
 	public ViewVehicles InstanceViewVehicle = new()
+	{
+		Dock = DockStyle.Fill
+	};
+
+	public ViewChoicePage InstanceViewChoicePage = new()
 	{
 		Dock = DockStyle.Fill
 	};
@@ -27,17 +34,32 @@ public partial class FormMain : Form
 	{
 		InstanceViewLogin.ResultLogin += ViewLogin_ResultLogin;
 		InstanceViewVehicle.CloseViewVehicles += InstanceViewVehicle_CloseViewBehicles;
+		InstanceViewChoicePage.ChoiceChanged += InstanceViewChoicePage_ChoiceChanged;
 
-		Container.Controls.Add(InstanceViewVehicle);
+		Container.Controls.Add(InstanceViewLogin);
+	}
+
+	private void InstanceViewChoicePage_ChoiceChanged(object? sender, ViewChoicePage.Escolhas e)
+	{
+		Container.Controls.Clear();
+		if (e == ViewChoicePage.Escolhas.Login)
+			Container.Controls.Add(InstanceViewLogin);
+		else
+			Container.Controls.Add(InstanceViewVehicle);
 	}
 
 	private void InstanceViewVehicle_CloseViewBehicles(object? sender, EventArgs e)
 	{
-		throw new NotImplementedException();
+		if (Container.Controls.Contains(InstanceViewVehicle))
+			Container.Controls.Remove(InstanceViewVehicle);
+
+		Container.Controls.Add(InstanceViewChoicePage);
 	}
 
 	private void ViewLogin_ResultLogin(object? sender, bool e)
 	{
-		throw new NotImplementedException();
+		Container.Controls.Clear();
+
+		Container.Controls.Add(InstanceViewVehicle);
 	}
 }

@@ -2,6 +2,7 @@
 using ShopCarAPI.Models;
 using System.Net.Http.Json;
 using Newtonsoft.Json;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ShopCarAPI;
 public static partial class Api
@@ -16,7 +17,8 @@ public static partial class Api
 	/// <param name="password">senha</param>
 	/// <returns></returns>
 	/// <exception cref="LoginException">Caso ocorra alguma falha durante login/deserializando objeto vindo da api</exception>
-	public static async Task<UserLogged?> Login(ExtLoginUser user)
+	[MemberNotNull]
+	public static async Task<UserLogged> Login(ExtLoginUser user)
 	{
 		string resultJsonString;
 		var client = new HttpClient
@@ -35,7 +37,12 @@ public static partial class Api
 
 		try
 		{
-			return JsonConvert.DeserializeObject<UserLogged>(resultJsonString);
+			var userLogged = JsonConvert.DeserializeObject<UserLogged>(resultJsonString) ?? throw new LoginException("Falha no retorno da api");
+
+			return userLogged;
+		} catch (LoginException)
+		{
+			throw;
 		} catch (Exception ex)
 		{
 			throw new LoginException("Falhou deserializando resultado da api", ex);

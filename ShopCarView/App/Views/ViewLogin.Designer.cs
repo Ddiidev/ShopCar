@@ -37,7 +37,7 @@ partial class ViewLogin
 		// TxUser
 		// 
 		TxUser.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
-		TxUser.Location = new Point(296, 302);
+		TxUser.Location = new Point(296, 261);
 		TxUser.Multiline = true;
 		TxUser.Name = "TxUser";
 		TxUser.Size = new Size(252, 33);
@@ -47,7 +47,7 @@ partial class ViewLogin
 		// TxPass
 		// 
 		TxPass.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
-		TxPass.Location = new Point(296, 368);
+		TxPass.Location = new Point(296, 327);
 		TxPass.Multiline = true;
 		TxPass.Name = "TxPass";
 		TxPass.Size = new Size(252, 33);
@@ -56,7 +56,7 @@ partial class ViewLogin
 		// 
 		// BtLogin
 		// 
-		BtLogin.Location = new Point(368, 422);
+		BtLogin.Location = new Point(368, 381);
 		BtLogin.Name = "BtLogin";
 		BtLogin.Size = new Size(95, 39);
 		BtLogin.TabIndex = 2;
