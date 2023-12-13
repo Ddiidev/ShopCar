@@ -7,7 +7,11 @@ namespace ShopCar.App.Services;
 public class ServiceVehicle
 {
 	const string SelectByNomeMarcaModelo = @"
-		SELECT * FROM Veiculos WHERE Placa LIKE @TermSearch OR Marca LIKE @TermSearch OR Modelo LIKE @TermSearch;
+		SELECT * FROM Veiculos 
+		WHERE UPPER(Placa) LIKE @TermSearch
+		OR UPPER(Chassi) LIKE @TermSearch
+		OR UPPER(Marca) LIKE @TermSearch
+		OR UPPER(Modelo) LIKE @TermSearch;
 	";
 
 	const string SelectAllSql = @"
@@ -72,7 +76,7 @@ public class ServiceVehicle
 		using var serviceDb = new ServiceDb();
 
 		return await serviceDb.Connection.QueryAsync<ModelVehicle>(SelectByNomeMarcaModelo, new {
-			TermSearch = term
+			TermSearch = $"{term}%"
 		});
 	}
 

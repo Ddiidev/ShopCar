@@ -35,8 +35,8 @@ partial class ViewVehicles
 		LayoutPanelTop = new TableLayoutPanel();
 		BtVoltar = new Button();
 		tableLayoutPanel2 = new TableLayoutPanel();
-		button1 = new Button();
-		textBox1 = new TextBox();
+		BtBuscar = new Button();
+		TxCampoBusca = new TextBox();
 		tableLayoutPanel3 = new TableLayoutPanel();
 		BtNovo = new Button();
 		BtEditar = new Button();
@@ -161,8 +161,8 @@ partial class ViewVehicles
 		tableLayoutPanel2.ColumnCount = 2;
 		tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 87.5164261F));
 		tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.4835739F));
-		tableLayoutPanel2.Controls.Add(button1, 1, 0);
-		tableLayoutPanel2.Controls.Add(textBox1, 0, 0);
+		tableLayoutPanel2.Controls.Add(BtBuscar, 1, 0);
+		tableLayoutPanel2.Controls.Add(TxCampoBusca, 0, 0);
 		tableLayoutPanel2.Dock = DockStyle.Fill;
 		tableLayoutPanel2.Location = new Point(90, 8);
 		tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -171,24 +171,25 @@ partial class ViewVehicles
 		tableLayoutPanel2.Size = new Size(752, 51);
 		tableLayoutPanel2.TabIndex = 3;
 		// 
-		// button1
+		// BtBuscar
 		// 
-		button1.Dock = DockStyle.Fill;
-		button1.Location = new Point(661, 3);
-		button1.Name = "button1";
-		button1.Size = new Size(88, 45);
-		button1.TabIndex = 3;
-		button1.Text = "Buscar 🔎";
-		button1.UseVisualStyleBackColor = true;
+		BtBuscar.Dock = DockStyle.Fill;
+		BtBuscar.Location = new Point(661, 3);
+		BtBuscar.Name = "BtBuscar";
+		BtBuscar.Size = new Size(88, 45);
+		BtBuscar.TabIndex = 3;
+		BtBuscar.Text = "Buscar 🔎";
+		BtBuscar.UseVisualStyleBackColor = true;
+		BtBuscar.Click += BtBuscar_Click;
 		// 
-		// textBox1
+		// TxCampoBusca
 		// 
-		textBox1.Dock = DockStyle.Fill;
-		textBox1.Location = new Point(3, 3);
-		textBox1.Multiline = true;
-		textBox1.Name = "textBox1";
-		textBox1.Size = new Size(652, 45);
-		textBox1.TabIndex = 0;
+		TxCampoBusca.Dock = DockStyle.Fill;
+		TxCampoBusca.Location = new Point(3, 3);
+		TxCampoBusca.Multiline = true;
+		TxCampoBusca.Name = "TxCampoBusca";
+		TxCampoBusca.Size = new Size(652, 45);
+		TxCampoBusca.TabIndex = 0;
 		// 
 		// tableLayoutPanel3
 		// 
@@ -546,8 +547,8 @@ partial class ViewVehicles
 	private TableLayoutPanel LayoutPanelTop;
 	private Button BtVoltar;
 	private TableLayoutPanel tableLayoutPanel2;
-	private Button button1;
-	private TextBox textBox1;
+	private Button BtBuscar;
+	private TextBox TxCampoBusca;
 	private TableLayoutPanel tableLayoutPanel3;
 	private Button BtNovo;
 	private Button BtEditar;

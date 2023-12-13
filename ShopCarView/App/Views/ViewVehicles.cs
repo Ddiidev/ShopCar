@@ -92,6 +92,17 @@ public partial class ViewVehicles : UserControl
 		}
 	}
 
+	private async void BtBuscar_Click(object sender, EventArgs e)
+	{
+		dgvListaVeiculos.DataSource = new { };
+
+		dgvListaVeiculos.SuspendLayout();
+
+		dgvListaVeiculos.DataSource = await ControllerVehicle.BuscarVeiculos(TxCampoBusca.Text);
+
+		dgvListaVeiculos.ResumeLayout();
+	}
+
 
 	#region PÁGINA DE EDIÇÃO
 	enum StateEdit
