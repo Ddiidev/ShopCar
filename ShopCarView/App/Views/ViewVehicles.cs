@@ -11,7 +11,7 @@ public partial class ViewVehicles : UserControl
 	public event EventHandler? CloseViewVehicles;
 
 
-	List<Brand> Marcas { get; set; }
+	List<Brand>? Marcas { get; set; }
 	ModelsBrand? Modelos { get; set; }
 	ModelVehicle? CurrentVehicleSelected { get; set; }
 
@@ -245,10 +245,10 @@ public partial class ViewVehicles : UserControl
 
 	private async Task ChecarCampoMarca()
 	{
-		if (Marcas.Count == 0)
+		if (Marcas is null || (Marcas is not null && Marcas.Count == 0))
 			Marcas = await Api.GetBrands();
 
-		if (!Marcas.Any(m => m.Nome == TxMarca.Text))
+		if (!Marcas!.Any(m => m.Nome == TxMarca.Text))
 			throw new Exception($@"Não existe a marca ""{TxMarca.Text}""");
 	}
 	#endregion

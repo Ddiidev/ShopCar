@@ -1,7 +1,8 @@
 ﻿using Dapper;
+
 using MySql.Data.MySqlClient;
+
 using System.Data;
-using Newtonsoft.Json;
 
 namespace ShopCar.App.Services;
 public class ServiceDb : IDisposable
@@ -36,17 +37,16 @@ public class ServiceDb : IDisposable
 	/// <exception cref="Exception">Caso falhe em criar alguma tabela</exception>
 	public static async Task Init()
 	{
-		using (var service = new ServiceDb())
+		using var service = new ServiceDb();
+
+		foreach (var table in Tables)
 		{
-			foreach (var table in Tables)
+			try
 			{
-				try
-				{
-					await service.Connection.ExecuteAsync(table.Value);
-				} catch (Exception ex)
-				{
-					throw new Exception($@"Falhou ao criar a tabela ""{table.Key}"" no banco de dados.", ex);
-				}
+				await service.Connection.ExecuteAsync(table.Value);
+			} catch (Exception ex)
+			{
+				throw new Exception($@"Falhou ao criar a tabela ""{table.Key}"" no banco de dados.", ex);
 			}
 		}
 	}
