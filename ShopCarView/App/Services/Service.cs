@@ -18,10 +18,10 @@ public class ServiceDb : IDisposable
 				chassi VARCHAR(20),
 				marca VARCHAR(50),
 				modelo VARCHAR(50),
-				ano_fabricacao INT,
-				ano_modelo INT,
-				valor_fipe DECIMAL(10,2),
-				valor_venda DECIMAL(10,2),
+				anofabricacao INT,
+				anomodelo INT,
+				valorfipe DECIMAL(10,2),
+				valorvenda DECIMAL(10,2),
 				observacoes TEXT,
 				PRIMARY KEY (id)
 			);"

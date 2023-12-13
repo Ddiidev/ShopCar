@@ -10,6 +10,11 @@ public partial class FormMain : Form
 		Dock = DockStyle.Fill,
 	};
 
+	public ViewVehicles InstanceViewVehicle = new()
+	{
+		Dock = DockStyle.Fill
+	};
+
 	public FormMain()
 	{
 		InitializeComponent();
@@ -21,8 +26,14 @@ public partial class FormMain : Form
 	public void InitializeInstances()
 	{
 		InstanceViewLogin.ResultLogin += ViewLogin_ResultLogin;
+		InstanceViewVehicle.CloseViewVehicles += InstanceViewVehicle_CloseViewBehicles;
 
-		Container.Controls.Add(InstanceViewLogin);
+		Container.Controls.Add(InstanceViewVehicle);
+	}
+
+	private void InstanceViewVehicle_CloseViewBehicles(object? sender, EventArgs e)
+	{
+		throw new NotImplementedException();
 	}
 
 	private void ViewLogin_ResultLogin(object? sender, bool e)
