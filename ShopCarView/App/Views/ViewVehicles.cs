@@ -200,15 +200,18 @@ public partial class ViewVehicles : UserControl
 			MessageBox.Show($"Campo com dado incorreto.\n{ex.Message}");
 		}
 
-		try {
-			await ChecarCampoModelo();
+		//
+		// Não compreendi essa parte, fiz a integração, porém não entendi como encaixar aqui.
+		//
+		//try {
+		//	await ChecarCampoModelo();
 
-			await ChecarCampoMarca();
-		} catch (Exception ex)
-		{
-			MessageBox.Show(ex.Message);
-			return;
-		}
+		//	await ChecarCampoMarca();
+		//} catch (Exception ex)
+		//{
+		//	MessageBox.Show(ex.Message);
+		//	return;
+		//}
 
 
 		if (CurrentStateEdit == StateEdit.create)
