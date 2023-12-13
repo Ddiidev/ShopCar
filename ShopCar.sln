@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34219.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopCar", "ShopCar.csproj", "{A3D668A8-F9D1-4179-B68B-F773DA568B5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopCarAPI", "ShopCarAPI\ShopCarAPI.csproj", "{FD6F3FED-CE8C-47F0-BEC7-91036EB7D053}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestShopCarAPI", "TestShopCarAPI\TestShopCarAPI.csproj", "{AC354C13-9E72-4355-A669-E7DD8285FC84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3D668A8-F9D1-4179-B68B-F773DA568B5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D668A8-F9D1-4179-B68B-F773DA568B5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D668A8-F9D1-4179-B68B-F773DA568B5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D668A8-F9D1-4179-B68B-F773DA568B5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD6F3FED-CE8C-47F0-BEC7-91036EB7D053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD6F3FED-CE8C-47F0-BEC7-91036EB7D053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD6F3FED-CE8C-47F0-BEC7-91036EB7D053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD6F3FED-CE8C-47F0-BEC7-91036EB7D053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC354C13-9E72-4355-A669-E7DD8285FC84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC354C13-9E72-4355-A669-E7DD8285FC84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC354C13-9E72-4355-A669-E7DD8285FC84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC354C13-9E72-4355-A669-E7DD8285FC84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16782820-290E-4E0D-87F6-B8D8068B5247}
+	EndGlobalSection
+EndGlobal

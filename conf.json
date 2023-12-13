@@ -1,0 +1,8 @@
+{
+	"port": 3306,
+	"server": "localhost",
+	"database": "shopcar",
+	"sslmode": "none",
+	"user": "root",
+	"password": "123456"
+}
