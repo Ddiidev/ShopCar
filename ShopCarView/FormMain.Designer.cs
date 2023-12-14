@@ -28,23 +28,23 @@ partial class FormMain
 	/// </summary>
 	private void InitializeComponent()
 	{
-		Container = new Panel();
+		PnContainer = new Panel();
 		SuspendLayout();
 		// 
 		// Container
 		// 
-		Container.Dock = DockStyle.Fill;
-		Container.Location = new Point(5, 5);
-		Container.Name = "Container";
-		Container.Size = new Size(866, 600);
-		Container.TabIndex = 0;
+		PnContainer.Dock = DockStyle.Fill;
+		PnContainer.Location = new Point(5, 5);
+		PnContainer.Name = "Container";
+		PnContainer.Size = new Size(866, 600);
+		PnContainer.TabIndex = 0;
 		// 
 		// FormMain
 		// 
 		AutoScaleDimensions = new SizeF(7F, 16F);
 		AutoScaleMode = AutoScaleMode.Font;
 		ClientSize = new Size(876, 610);
-		Controls.Add(Container);
+		Controls.Add(PnContainer);
 		Name = "FormMain";
 		Padding = new Padding(5);
 		Text = "ShopCar";
@@ -53,5 +53,5 @@ partial class FormMain
 
 	#endregion
 
-	private Panel Container;
+	private Panel PnContainer;
 }

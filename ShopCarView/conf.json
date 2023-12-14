@@ -4,5 +4,6 @@
 	"database": "shopcar",
 	"sslmode": "none",
 	"user": "root",
-	"password": "123456"
+	"password": "123456",
+	"force_db_sqlite": true
 }

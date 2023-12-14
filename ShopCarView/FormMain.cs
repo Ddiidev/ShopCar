@@ -36,30 +36,30 @@ public partial class FormMain : Form
 		InstanceViewVehicle.CloseViewVehicles += InstanceViewVehicle_CloseViewBehicles;
 		InstanceViewChoicePage.ChoiceChanged += InstanceViewChoicePage_ChoiceChanged;
 
-		Container.Controls.Add(InstanceViewLogin);
+		PnContainer.Controls.Add(InstanceViewLogin);
 	}
 
 	private void InstanceViewChoicePage_ChoiceChanged(object? sender, ViewChoicePage.Escolhas e)
 	{
-		Container.Controls.Clear();
+		PnContainer.Controls.Clear();
 		if (e == ViewChoicePage.Escolhas.Login)
-			Container.Controls.Add(InstanceViewLogin);
+			PnContainer.Controls.Add(InstanceViewLogin);
 		else
-			Container.Controls.Add(InstanceViewVehicle);
+			PnContainer.Controls.Add(InstanceViewVehicle);
 	}
 
 	private void InstanceViewVehicle_CloseViewBehicles(object? sender, EventArgs e)
 	{
-		if (Container.Controls.Contains(InstanceViewVehicle))
-			Container.Controls.Remove(InstanceViewVehicle);
+		if (PnContainer.Controls.Contains(InstanceViewVehicle))
+			PnContainer.Controls.Remove(InstanceViewVehicle);
 
-		Container.Controls.Add(InstanceViewChoicePage);
+		PnContainer.Controls.Add(InstanceViewChoicePage);
 	}
 
 	private void ViewLogin_ResultLogin(object? sender, bool e)
 	{
-		Container.Controls.Clear();
+		PnContainer.Controls.Clear();
 
-		Container.Controls.Add(InstanceViewVehicle);
+		PnContainer.Controls.Add(InstanceViewVehicle);
 	}
 }

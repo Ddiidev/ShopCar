@@ -2,7 +2,7 @@
 
 public class ModelsBrand : ResultApi<string>
 {
-	public IList<ExtModelsBrand>? Modelos { get; set; }
+	public List<ExtModelsBrand>? Modelos { get; set; }
 }
 
 public class ExtModelsBrand

@@ -49,6 +49,7 @@ partial class ViewVehicles
 		tableLayoutPanel4 = new TableLayoutPanel();
 		BtVoltarEdit = new Button();
 		PnContentEdit = new Panel();
+		CbMarca = new ComboBox();
 		label9 = new Label();
 		TxObservacoes = new TextBox();
 		label8 = new Label();
@@ -60,13 +61,12 @@ partial class ViewVehicles
 		label5 = new Label();
 		TxAnoFabricacao = new TextBox();
 		label4 = new Label();
-		TxModelo = new TextBox();
 		label3 = new Label();
-		TxMarca = new TextBox();
 		label2 = new Label();
 		TxChassi = new TextBox();
 		label1 = new Label();
 		TxPlaca = new TextBox();
+		CbModelo = new ComboBox();
 		TabMain.SuspendLayout();
 		PageMain.SuspendLayout();
 		LayoutPanelMain.SuspendLayout();
@@ -336,6 +336,8 @@ partial class ViewVehicles
 		// 
 		// PnContentEdit
 		// 
+		PnContentEdit.Controls.Add(CbModelo);
+		PnContentEdit.Controls.Add(CbMarca);
 		PnContentEdit.Controls.Add(label9);
 		PnContentEdit.Controls.Add(TxObservacoes);
 		PnContentEdit.Controls.Add(label8);
@@ -347,9 +349,7 @@ partial class ViewVehicles
 		PnContentEdit.Controls.Add(label5);
 		PnContentEdit.Controls.Add(TxAnoFabricacao);
 		PnContentEdit.Controls.Add(label4);
-		PnContentEdit.Controls.Add(TxModelo);
 		PnContentEdit.Controls.Add(label3);
-		PnContentEdit.Controls.Add(TxMarca);
 		PnContentEdit.Controls.Add(label2);
 		PnContentEdit.Controls.Add(TxChassi);
 		PnContentEdit.Controls.Add(label1);
@@ -359,6 +359,20 @@ partial class ViewVehicles
 		PnContentEdit.Name = "PnContentEdit";
 		PnContentEdit.Size = new Size(850, 459);
 		PnContentEdit.TabIndex = 6;
+		// 
+		// CbMarca
+		// 
+		CbMarca.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+		CbMarca.AutoCompleteSource = AutoCompleteSource.ListItems;
+		CbMarca.DisplayMember = "Nome";
+		CbMarca.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
+		CbMarca.FormattingEnabled = true;
+		CbMarca.Location = new Point(30, 224);
+		CbMarca.Name = "CbMarca";
+		CbMarca.Size = new Size(214, 29);
+		CbMarca.TabIndex = 18;
+		CbMarca.ValueMember = "Codigo";
+		CbMarca.SelectedValueChanged += CbMarca_SelectedValueChanged;
 		// 
 		// label9
 		// 
@@ -371,10 +385,11 @@ partial class ViewVehicles
 		// 
 		// TxObservacoes
 		// 
+		TxObservacoes.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
 		TxObservacoes.Location = new Point(566, 58);
 		TxObservacoes.Multiline = true;
 		TxObservacoes.Name = "TxObservacoes";
-		TxObservacoes.Size = new Size(250, 126);
+		TxObservacoes.Size = new Size(250, 195);
 		TxObservacoes.TabIndex = 16;
 		// 
 		// label8
@@ -388,10 +403,10 @@ partial class ViewVehicles
 		// 
 		// TxValorVenda
 		// 
+		TxValorVenda.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
 		TxValorVenda.Location = new Point(287, 313);
-		TxValorVenda.Multiline = true;
 		TxValorVenda.Name = "TxValorVenda";
-		TxValorVenda.Size = new Size(214, 44);
+		TxValorVenda.Size = new Size(214, 29);
 		TxValorVenda.TabIndex = 14;
 		// 
 		// label7
@@ -405,10 +420,10 @@ partial class ViewVehicles
 		// 
 		// TxValorFIPE
 		// 
+		TxValorFIPE.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
 		TxValorFIPE.Location = new Point(287, 224);
-		TxValorFIPE.Multiline = true;
 		TxValorFIPE.Name = "TxValorFIPE";
-		TxValorFIPE.Size = new Size(214, 44);
+		TxValorFIPE.Size = new Size(214, 29);
 		TxValorFIPE.TabIndex = 12;
 		// 
 		// label6
@@ -422,10 +437,10 @@ partial class ViewVehicles
 		// 
 		// TxAnoModelo
 		// 
+		TxAnoModelo.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
 		TxAnoModelo.Location = new Point(287, 140);
-		TxAnoModelo.Multiline = true;
 		TxAnoModelo.Name = "TxAnoModelo";
-		TxAnoModelo.Size = new Size(214, 44);
+		TxAnoModelo.Size = new Size(214, 29);
 		TxAnoModelo.TabIndex = 10;
 		// 
 		// label5
@@ -439,10 +454,10 @@ partial class ViewVehicles
 		// 
 		// TxAnoFabricacao
 		// 
+		TxAnoFabricacao.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
 		TxAnoFabricacao.Location = new Point(287, 58);
-		TxAnoFabricacao.Multiline = true;
 		TxAnoFabricacao.Name = "TxAnoFabricacao";
-		TxAnoFabricacao.Size = new Size(214, 44);
+		TxAnoFabricacao.Size = new Size(214, 29);
 		TxAnoFabricacao.TabIndex = 8;
 		// 
 		// label4
@@ -454,14 +469,6 @@ partial class ViewVehicles
 		label4.TabIndex = 7;
 		label4.Text = "Modelo";
 		// 
-		// TxModelo
-		// 
-		TxModelo.Location = new Point(30, 313);
-		TxModelo.Multiline = true;
-		TxModelo.Name = "TxModelo";
-		TxModelo.Size = new Size(214, 44);
-		TxModelo.TabIndex = 6;
-		// 
 		// label3
 		// 
 		label3.AutoSize = true;
@@ -470,14 +477,6 @@ partial class ViewVehicles
 		label3.Size = new Size(41, 16);
 		label3.TabIndex = 5;
 		label3.Text = "Marca";
-		// 
-		// TxMarca
-		// 
-		TxMarca.Location = new Point(30, 224);
-		TxMarca.Multiline = true;
-		TxMarca.Name = "TxMarca";
-		TxMarca.Size = new Size(214, 44);
-		TxMarca.TabIndex = 4;
 		// 
 		// label2
 		// 
@@ -490,10 +489,10 @@ partial class ViewVehicles
 		// 
 		// TxChassi
 		// 
+		TxChassi.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
 		TxChassi.Location = new Point(30, 140);
-		TxChassi.Multiline = true;
 		TxChassi.Name = "TxChassi";
-		TxChassi.Size = new Size(214, 44);
+		TxChassi.Size = new Size(214, 29);
 		TxChassi.TabIndex = 2;
 		// 
 		// label1
@@ -507,11 +506,24 @@ partial class ViewVehicles
 		// 
 		// TxPlaca
 		// 
+		TxPlaca.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
 		TxPlaca.Location = new Point(30, 58);
-		TxPlaca.Multiline = true;
 		TxPlaca.Name = "TxPlaca";
-		TxPlaca.Size = new Size(214, 44);
+		TxPlaca.Size = new Size(214, 29);
 		TxPlaca.TabIndex = 0;
+		// 
+		// CbModelo
+		// 
+		CbModelo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+		CbModelo.AutoCompleteSource = AutoCompleteSource.ListItems;
+		CbModelo.DisplayMember = "Nome";
+		CbModelo.Font = new Font("Segoe UI Semilight", 12F, FontStyle.Regular, GraphicsUnit.Point);
+		CbModelo.FormattingEnabled = true;
+		CbModelo.Location = new Point(30, 313);
+		CbModelo.Name = "CbModelo";
+		CbModelo.Size = new Size(214, 29);
+		CbModelo.TabIndex = 19;
+		CbModelo.ValueMember = "Codigo";
 		// 
 		// ViewVehicles
 		// 
@@ -573,10 +585,10 @@ partial class ViewVehicles
 	private Label label5;
 	private TextBox TxAnoFabricacao;
 	private Label label4;
-	private TextBox TxModelo;
 	private Label label3;
-	private TextBox TxMarca;
 	private Label label2;
 	private TextBox TxChassi;
 	private Label label1;
+	private ComboBox CbMarca;
+	private ComboBox CbModelo;
 }

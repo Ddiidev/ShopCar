@@ -11,13 +11,24 @@ public static class ControllerVehicle
 	/// <param name="veiculo"></param>
 	/// <returns></returns>
 	/// <exception cref="ArgumentException">Caso o AnoModelo/AnoFabricacao seja igual ou menor que 0</exception>
-	public static async Task<int> Criar(ModelVehicle veiculo)
+	public static async Task<int> Criar(ModelVeiculo veiculo, ModelMarca marca, ModelModelo modelo)
 	{
 		if (veiculo.AnoModelo <= 0)
 			throw new ArgumentException($@"O Ano do modelo precisa ter valor superior a ""{veiculo.AnoModelo}""");
 
 		if (veiculo.AnoFabricacao <= 0)
 			throw new ArgumentException($@"O Ano do fabricação precisa ter valor superior a ""{veiculo.AnoFabricacao}""");
+
+		var serviceModel = new ServiceModel();
+		var serviceMarca = new ServiceMarca();
+		
+		var models = await serviceModel.GetByCodigo(modelo.Codigo!);
+		if (!models.Any())
+			await serviceModel.Add(modelo);
+
+		var marcas = await serviceMarca.GetByCodigo(marca.Codigo!);
+		if (!marcas.Any())
+			await serviceMarca.Add(marca);
 
 		return await ServiceVehicle.Add(veiculo);
 	}
@@ -28,13 +39,24 @@ public static class ControllerVehicle
 	/// <param name="veiculo"></param>
 	/// <returns></returns>
 	/// <exception cref="ArgumentException">Caso o AnoModelo/AnoFabricacao seja igual ou menor que 0</exception>
-	public static async Task<int> Atualizar(ModelVehicle veiculo)
+	public static async Task<int> Atualizar(ModelVeiculo veiculo, ModelMarca marca, ModelModelo modelo)
 	{
 		if(veiculo.AnoModelo <= 0)
 			throw new ArgumentException($@"O Ano do modelo precisa ter valor superior a ""{veiculo.AnoModelo}""");
 
 		if (veiculo.AnoFabricacao <= 0)
 			throw new ArgumentException($@"O Ano do fabricação precisa ter valor superior a ""{veiculo.AnoFabricacao}""");
+
+		var serviceModel = new ServiceModel();
+		var serviceMarca = new ServiceMarca();
+
+		var models = await serviceModel.GetByCodigo(modelo.Codigo!);
+		if (!models.Any())
+			await serviceModel.Add(modelo);
+
+		var marcas = await serviceMarca.GetByCodigo(marca.Codigo!);
+		if (!marcas.Any())
+			await serviceMarca.Add(marca);
 
 		return await ServiceVehicle.Update(veiculo);
 	}
@@ -43,7 +65,7 @@ public static class ControllerVehicle
 	/// Pega todos os veículos existentes no banco.
 	/// </summary>
 	/// <returns></returns>
-	public static async Task<IEnumerable<ModelVehicle>> PegarTodosVeiculos()
+	public static async Task<IEnumerable<ModelVeiculo>> PegarTodosVeiculos()
 	{
 		return await ServiceVehicle.GetAll();
 	}
@@ -53,7 +75,7 @@ public static class ControllerVehicle
 	/// </summary>
 	/// <param name="termoBusca"></param>
 	/// <returns></returns>
-	public static async Task<IEnumerable<ModelVehicle>> BuscarVeiculos(string termoBusca)
+	public static async Task<IEnumerable<ModelVeiculo>> BuscarVeiculos(string termoBusca)
 	{
 		if (string.IsNullOrWhiteSpace(termoBusca))
 			return await ServiceVehicle.GetAll();
@@ -67,7 +89,7 @@ public static class ControllerVehicle
 	/// <param name="veiculo"></param>
 	/// <returns></returns>
 	/// <exception cref="Exception">Caso o veiculo seja nulo</exception>
-	public static async Task<int> DeletarVeiculoPorId(ModelVehicle veiculo)
+	public static async Task<int> DeletarVeiculoPorId(ModelVeiculo veiculo)
 	{
 		if (veiculo is null)
 			throw new Exception("Falha ao deletar o veículo");

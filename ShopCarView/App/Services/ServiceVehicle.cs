@@ -8,6 +8,8 @@ public class ServiceVehicle
 {
 	const string SelectByNomeMarcaModelo = @"
 		SELECT * FROM Veiculos 
+		LEFT JOIN marcas ma ON v.marca = ma.codigo
+		LEFT JOIN modelos mo ON v.modelo = mo.codigo
 		WHERE UPPER(Placa) LIKE @TermSearch
 		OR UPPER(Chassi) LIKE @TermSearch
 		OR UPPER(Marca) LIKE @TermSearch
@@ -15,7 +17,9 @@ public class ServiceVehicle
 	";
 
 	const string SelectAllSql = @"
-		SELECT * FROM Veiculos
+		SELECT v.*, ma.nome as nomemarca, mo.nome as nomemodelo FROM Veiculos v
+		LEFT JOIN marcas ma ON v.marca = ma.codigo
+		LEFT JOIN modelos mo ON v.modelo = mo.codigo
 	";
 
 	const string InsertSql = @"
@@ -41,7 +45,7 @@ public class ServiceVehicle
 		DELETE FROM Veiculos WHERE Id = @Id;
 	";
 
-	public static async Task<int> Add(ModelVehicle vehicle)
+	public static async Task<int> Add(ModelVeiculo vehicle)
 	{
 		using var serviceDb = new ServiceDb();
 
@@ -49,14 +53,14 @@ public class ServiceVehicle
 		return await serviceDb.Connection.ExecuteAsync(InsertSql, vehicle);
 	}
 
-	public static async Task<int> Update(ModelVehicle vehicle)
+	public static async Task<int> Update(ModelVeiculo vehicle)
 	{
 		using var serviceDb = new ServiceDb();
 
 		return await serviceDb.Connection.ExecuteAsync(UpdateSql, vehicle);
 	}
 
-	public static async Task<int> Delete(ModelVehicle vehicle)
+	public static async Task<int> Delete(ModelVeiculo vehicle)
 	{
 		using var serviceDb = new ServiceDb();
 
@@ -64,18 +68,18 @@ public class ServiceVehicle
 	}
 
 
-	public static async Task<IEnumerable<ModelVehicle>> GetAll()
+	public static async Task<IEnumerable<ModelVeiculo>> GetAll()
 	{
 		using var serviceDb = new ServiceDb();
 
-		return await serviceDb.Connection.QueryAsync<ModelVehicle>(SelectAllSql);
+		return await serviceDb.Connection.QueryAsync<ModelVeiculo>(SelectAllSql);
 	}
 
-	public static async Task<IEnumerable<ModelVehicle>> SearchAll(string term)
+	public static async Task<IEnumerable<ModelVeiculo>> SearchAll(string term)
 	{
 		using var serviceDb = new ServiceDb();
 
-		return await serviceDb.Connection.QueryAsync<ModelVehicle>(SelectByNomeMarcaModelo, new {
+		return await serviceDb.Connection.QueryAsync<ModelVeiculo>(SelectByNomeMarcaModelo, new {
 			TermSearch = $"{term}%"
 		});
 	}
