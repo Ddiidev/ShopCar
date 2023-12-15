@@ -7,7 +7,7 @@ namespace ShopCar.App.Services;
 public class ServiceVehicle
 {
 	const string SelectByNomeMarcaModelo = @"
-		SELECT * FROM Veiculos 
+		SELECT v.*, ma.nome as nomemarca, mo.nome as nomemodelo  FROM Veiculos as v
 		LEFT JOIN marcas ma ON v.marca = ma.codigo
 		LEFT JOIN modelos mo ON v.modelo = mo.codigo
 		WHERE UPPER(Placa) LIKE @TermSearch
