@@ -1,7 +1,7 @@
 
 # ShopCar
 
-🗄️ Esse foi um projeto para uma entrevista 
+🗄️ Esse foi um projeto para uma entrevista ✅ 
 
 ## Funcionalidades
 
